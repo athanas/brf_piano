@@ -1,0 +1,36 @@
+<html><head><title>Piano Music Server</title>
+<style type="text/css"><!--
+  A:link { text-decoration:none }
+  A:visited { text-decoration:none }
+  A:active { text-decoration:none }
+  A:hover { text-decoration:underline; color:#ff0000 }
+  .isnew { font-size:75%; font-style:italic; color:#008000;
+           margin-left: 2em }
+--></style>
+<!-- charset is hard-coded to UTF-8 in the code, DO NOT CHANGE! -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head><body link="#444488" alink="#884444" vlink="#444488">
+<table width="100%" bgcolor="#bbbbff" cellpadding=2><tr>
+  <td><font size="+2">
+<strong>Piano Music Player</strong>
+</font></td></tr></table>
+
+<!-- CSS stuff goes here -->
+</head><body><h2>Playing Song</h2>
+
+[if-any songs]
+  <table border="1">
+  [for songs]
+    <tr>
+      <td>[songs.name]</td>
+    </tr>
+  [end]
+  </table>
+[else]
+  <h3>No song playing</h3>
+[end]
+<h2><a href="stop">STOP</a></h2>
+
+<hr>
+<center>Powered by <a href="http://edna.sourceforge.net/">edna</a></center>
+</body></html>
