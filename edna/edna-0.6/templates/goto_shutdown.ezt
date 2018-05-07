@@ -1,0 +1,14 @@
+<html><head><title>Site Shutdown</title>
+<!-- charset is hard-coded to UTF-8 in the code, DO NOT CHANGE! -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- CSS stuff goes here -->
+</head><body><h1>Site Shutdown</h1>
+<hr>
+<huge><a href="/shutdown_brf_piano/"> CLICK HERE TO SHUTDOWN SERVER IMMEDIATELY</a>
+</huge>
+
+<p>
+Shutdown will be immediate -- no subsequent page.
+<hr>
+<center>Powered by <a href="http://edna.sourceforge.net/">edna</a></center>
+</body></html>

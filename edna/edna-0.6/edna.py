@@ -166,6 +166,9 @@ class Server(mixin, BaseHTTPServer.HTTPServer):
     tfname = os.path.join(template_path, 'stats.ezt')
     self.stats_template = ezt.Template(tfname, encodings)
 
+    tfname = os.path.join(template_path, 'goto_shutdown.ezt')
+    self.shutdown_template = ezt.Template(tfname, encodings)
+
     tfname = os.path.join(template_path, 'playing.ezt')
     self.playing_template = ezt.Template(tfname, encodings)
 
@@ -388,6 +391,13 @@ class EdnaRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
        self.end_headers()
 
 
+    # PMA: path to shutdown
+    elif "shutdown_brf_piano" in path:
+       self.send_response(200)
+       self.send_header("Content-Type", 'text/html')
+       self.end_headers()
+       os.system("sudo shutdown -h now")
+
     self.output_style = 'html'
     if len(path) >= 1:
       if path[0] == 'xml':
@@ -408,6 +418,11 @@ class EdnaRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
       # a resource file was requested
       fullpath = os.path.join(self.server.resource_dir, path[1])
       self.serve_file(path[1], fullpath, '/resources');
+    elif path and path[0] == 'goto_shutdown':
+       self.send_response(200)
+       self.send_header("Content-Type", 'text/html')
+       self.end_headers()
+       self.server.shutdown_template.generate(self.wfile, {})
     else:
       # other requests fall under the user configured namespace
       if path:
